@@ -1,0 +1,14 @@
+{
+  "id": "HandSizeControl",
+  "name": "Hand Size Control",
+  "display_name": "Hand Size Control",
+  "author": ["medmemara"],
+  "description": "Set a minimum or fixed starting hand size for new Balatro runs.",
+  "prefix": "hsc",
+  "main_file": "main.lua",
+  "version": "1.0.0",
+  "priority": 10,
+  "badge_colour": "2E8B57",
+  "badge_text_colour": "FFFFFF",
+  "dependencies": ["Steamodded (>=1.0.0~BETA-1814a)"]
+}
