@@ -46,6 +46,29 @@ function HSC.apply_starting_hand_size()
     starting_params.hand_size = HSC.HandSize.calculate(starting_params.hand_size, HSC.config)
 end
 
+function HSC.apply_current_hand_size()
+    local hand = G.hand
+    local config = hand and hand.config
+
+    if not config then
+        return false
+    end
+
+    local current = config.real_card_limit or config.card_limit
+    local target = HSC.HandSize.calculate(current, HSC.config)
+    local delta = target - current
+
+    if delta ~= 0 then
+        hand:change_size(delta)
+    end
+
+    return true
+end
+
+G.FUNCS.hsc_apply_current_hand_size = function()
+    HSC.apply_current_hand_size()
+end
+
 function HSC.config_tab()
     local mode_labels = {
         localize("k_hsc_minimum"),
@@ -101,6 +124,28 @@ function HSC.config_tab()
                     {
                         n = G.UIT.T,
                         config = { text = localize("k_hsc_new_run_only"), colour = G.C.UI.TEXT_LIGHT, scale = 0.38 },
+                    },
+                },
+            },
+            {
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.08 },
+                nodes = {
+                    UIBox_button({
+                        button = "hsc_apply_current_hand_size",
+                        label = { localize("b_hsc_apply_current") },
+                        colour = G.C.GREEN,
+                        minw = 4.5,
+                    }),
+                },
+            },
+            {
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.05 },
+                nodes = {
+                    {
+                        n = G.UIT.T,
+                        config = { text = localize("k_hsc_apply_current_note"), colour = G.C.UI.TEXT_INACTIVE, scale = 0.32 },
                     },
                 },
             },

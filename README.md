@@ -11,6 +11,10 @@ Choose a value from **1 to 50 cards**. The default is **Minimum 8**, which prese
 
 This mod does not change the number of cards that can be played in a hand (normally 5), Blind targets, scoring, Joker slots, or any other game setting. It also does not undo hand-size changes earned or lost after a run begins, such as Ectoplasm.
 
+## Current runs
+
+The Config screen includes **Apply to current run**. It changes the live hand-size limit without restarting or abandoning the run. Increasing the limit draws additional cards immediately when Balatro is at a normal draw or hand-selection state; reducing the limit takes effect on the next draw so cards currently visible are not discarded.
+
 ## Requirements
 
 - Balatro
@@ -23,7 +27,7 @@ This mod does not change the number of cards that can be played in a hand (norma
 2. Extract the `HandSizeControl` folder into the Balatro `Mods` directory.
 3. Launch Balatro through Lovely.
 4. Open **Mods → Hand Size Control → Config**, choose `Minimum` or `Fixed`, and choose the number of cards.
-5. Start a **new run**.
+5. Start a **new run**, or use **Apply to current run** for an existing run.
 
 ## macOS
 
